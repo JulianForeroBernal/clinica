@@ -1,0 +1,25 @@
+@startuml
+class Patient{
+# name : String
+# id : int
+# consultCost : int
++ calculateFinalCost ()
++ applyDeduction (percent : double)
++ applySurcharge (percent : double)
++ isExpensiveConsult ()
++ showData ()
+}
+class ParticularPatient{
+}
+class EPS_Patient {
+- EPS_Name : String
+}
+class VIP_Patient {
+- FidelityYears : int
+}
+
+Patient <|-- ParticularPatient
+Patient <|-- EPS_Patient
+Patient <|-- VIP_Patient
+
+@enduml
