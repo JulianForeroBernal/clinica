@@ -99,6 +99,7 @@ public class Main {
                                     percent = scan.nextInt();
                                     paciente.applyDiscount(percent);
                                     System.out.println("se aplico un descuento del: " + percent + "% al costo de la consulta\n costo actual: " + paciente.getConsultCost());
+                                    System.out.println("tenga en cuenta que calcular de nuevo el valor de la consulta resetea los descuentos y recargos aplicados manualmente");
                                     break;
                                 case 3:
                                     paciente.calculateFinalCost();
@@ -107,6 +108,7 @@ public class Main {
                                     percent = scan.nextInt();
                                     paciente.applySurcharge(percent);
                                     System.out.println("se aplico un recargo del: " + percent + "% al costo de la consulta\n costo actual: " + paciente.getConsultCost());
+                                    System.out.println("tenga en cuenta que calcular de nuevo el valor de la consulta resetea los descuentos y recargos aplicados manualmente");
                                     break;
                                 case 4:
                                     System.out.println(paciente.showData());

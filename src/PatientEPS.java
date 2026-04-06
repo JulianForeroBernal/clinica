@@ -15,24 +15,23 @@ public class PatientEPS extends Patient{
     }
     //overwrites
     @Override
-    public int calculateFinalCost() {
+    public void calculateFinalCost() {
         double percent;
         int copayment;
-        if (this.consultCost >= 300000){
+        if (this.originalCost >= 300000){
             percent = 0.25;
-        }else if(this.consultCost >= 80000){
+        }else if(this.originalCost >= 80000){
             percent = 0.2;
         }else {
             percent = 0.3;
         }
-        copayment = (int) (this.consultCost - (this.consultCost * percent));
+        copayment = (int) (this.originalCost - (this.originalCost * percent));
         if(this.isExpensiveConsult()) {
             copayment = (int) (copayment - (copayment * 0.05));
             this.setConsultCost(copayment);
         }else {
             this.setConsultCost(copayment);
         }
-        return this.getConsultCost();
     }
     @Override
     public String showData() {

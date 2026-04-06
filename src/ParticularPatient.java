@@ -5,7 +5,7 @@ public class ParticularPatient extends Patient{
     }
     //overwrites
     @Override
-    public int calculateFinalCost() {
+    public void calculateFinalCost() {
         int total;
         if (this.consultCost >= 400000){
             total = (int) (this.consultCost - (this.consultCost*(0.15)));
@@ -17,6 +17,5 @@ public class ParticularPatient extends Patient{
             total = this.consultCost;
         }
         this.setConsultCost(total);
-        return  this.getConsultCost();
     }
 }

@@ -44,16 +44,13 @@ public class Patient {
         this.originalCost = originalCost;
     }
     // own methods
-    public int calculateFinalCost(){
-        return this.getConsultCost();
+    public void calculateFinalCost(){
     }
-    public int applyDiscount(int percent){
+    public void applyDiscount(int percent){
         this.setConsultCost(this.getConsultCost() - (this.getConsultCost()*(percent/100)));
-        return this.getConsultCost();
     }
-    public int applySurcharge(int percent){
+    public void applySurcharge(int percent){
         this.setConsultCost(this.getConsultCost() + (this.getConsultCost()*(percent/100)));
-        return this.getConsultCost();
     }
     public boolean isExpensiveConsult(){
         /*if(this.consultCost > 300000){
