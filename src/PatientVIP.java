@@ -2,8 +2,9 @@ public class PatientVIP extends Patient {
     // own attributes
     private int fidelityYears;
     //constructor
-    public PatientVIP(String name, int id, int consultCost) {
+    public PatientVIP(String name, int id, int consultCost, int fidelityYears) {
         super(name, id, consultCost);
+        this.fidelityYears = fidelityYears;
     }
     // getter and setter
     public int getFidelityYears() {
@@ -14,7 +15,6 @@ public class PatientVIP extends Patient {
         this.fidelityYears = fidelityYears;
     }
     //overwrites
-
     @Override
     public int calculateFinalCost() {
         int total;
@@ -30,5 +30,9 @@ public class PatientVIP extends Patient {
         }
         this.setConsultCost(total);
         return this.getConsultCost();
+    }
+    @Override
+    public String showData() {
+        return super.showData() + "\naños de fidelidad: " + this.getFidelityYears();
     }
 }

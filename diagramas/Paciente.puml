@@ -13,9 +13,13 @@ class ParticularPatient{
 }
 class EPS_Patient {
 - EPS_Name : String
++ calculateFinalCost ()
++ showData ()
 }
 class VIP_Patient {
 - FidelityYears : int
++ calculateFinalCost ()
++ showData ()
 }
 
 Patient <|-- ParticularPatient

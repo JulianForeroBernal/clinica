@@ -3,7 +3,7 @@ public class Patient {
     protected String name;
     protected int id;
     protected int consultCost;
-    protected int finalValue;
+    protected int originalCost;
 
     //methods
     // constructor
@@ -11,7 +11,7 @@ public class Patient {
         this.name = name;
         this.id = id;
         this.consultCost = consultCost;
-        this.finalValue = 0;
+        this.originalCost = consultCost;
     }
     // getters and setters
     public String getName() {
@@ -37,16 +37,23 @@ public class Patient {
     public void setConsultCost(int consultCost) {
         this.consultCost = consultCost;
     }
+    public int getOriginalCost() {
+        return originalCost;
+    }
+    public void setOriginalCost(int originalCost) {
+        this.originalCost = originalCost;
+    }
     // own methods
     public int calculateFinalCost(){
         return this.getConsultCost();
     }
     public int applyDiscount(int percent){
-        return (this.consultCost - (this.consultCost*(percent/100)));
+        this.setConsultCost(this.getConsultCost() - (this.getConsultCost()*(percent/100)));
+        return this.getConsultCost();
     }
     public int applySurcharge(int percent){
-        this.consultCost = this.consultCost + (this.consultCost*(percent/100));
-        return this.consultCost;
+        this.setConsultCost(this.getConsultCost() + (this.getConsultCost()*(percent/100)));
+        return this.getConsultCost();
     }
     public boolean isExpensiveConsult(){
         /*if(this.consultCost > 300000){
@@ -58,10 +65,10 @@ public class Patient {
         */
         return this.consultCost > 300000;
     }
-    public String showData(double finalCost){
+    public String showData(){
         return "nombre: " + this.name +
-                "id: "+ this.id  +
-                "valor original de la consulta: " +this.consultCost;
-
+                "\nid: " + this.id + " " +
+                "\nvalor original de la consulta: " +this.originalCost +
+                "\nvalor final de la consulta: " + this.getConsultCost();
     }
 }
